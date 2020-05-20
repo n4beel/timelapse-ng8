@@ -1,0 +1,76 @@
+<div class="main">
+  <div class="gallery">
+    <div class="slider">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of slidesStore">
+          <ng-template carouselSlide [id]="slide.id">
+            <div class="img-cont">
+              <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" />
+            </div>
+            <div class="time">
+              <p>{{ slide.time }}</p>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <div class="img-viewer">
+      <app-image-viewer
+        [images]="['https://picsum.photos/900/500/?random']"
+        [idContainer]="'idOnHTML'"
+        [loadOnInit]="true"
+        [download]="false"
+        [primaryColor]="'#000'"
+        [buttonsColor]="'#fff'"
+        [buttonsHover]="'#fff'"
+        [enableTooltip]="false"
+        [showPDFOnlyOption]="false"
+        [openInNewTabTooltipLabel]="false"
+      ></app-image-viewer>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="datetime">
+      <div class="cont">
+        <div class="time">08:30</div>
+        <div class="date">
+          <div class="weekday">Thursday</div>
+          <div class="date long">9 January 2020</div>
+          <div class="date short">9 Jan'20</div>
+        </div>
+      </div>
+    </div>
+    <div class="atmosphere">
+      <div class="item">
+        <div class="icon">
+          <i class="fas fa-thermometer-half"></i>
+        </div>
+        <div class="value">
+          11 &deg;C
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <i class="fas fa-wind"></i>
+        </div>
+        <div class="value">
+          12 mph
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <i class="fas fa-cloud-sun"></i>
+        </div>
+        <div class="value">
+          Possible Light Rain
+        </div>
+      </div>
+    </div>
+    <div class="calendar">
+      <mini-calendar
+        [mainColor]="'#df342c'"
+        [secondaryColor]="'#df342c'"
+      ></mini-calendar>
+    </div>
+  </div>
+</div>
